@@ -1,0 +1,37 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.0.M4'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.lucasaquiles'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+}
+
+dependencies {
+
+	compileOnly 'org.projectlombok:lombok:1.18.8'
+	annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	runtimeOnly 'com.h2database:h2'
+
+	testImplementation "org.mockito:mockito-core:2.+"
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testImplementation group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	testImplementation group: 'junit', module: 'junit'
+	
+
+
+}
+
+test {
+	useJUnitPlatform()
+}
